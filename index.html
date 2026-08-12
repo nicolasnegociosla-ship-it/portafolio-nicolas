@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nicolás Negocios — Full-Stack Developer & Creador con IA</title>
+<meta name="description" content="Portafolio de Nicolás Negocios: desarrollo full-stack, automatización e IA generativa.">
+<style>
+  :root{
+    --bg:#08090c;
+    --bg2:#0c0d11;
+    --line:#1a1a1a;
+    --green:#4dff9e;
+    --green-dim:#2c7a55;
+    --text:#f2f2f0;
+    --muted:#8a8a86;
+    --muted2:#5c5c58;
+    --mono:'Consolas','SFMono-Regular','Courier New',monospace;
+    --sans:'Segoe UI',system-ui,-apple-system,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size:44px 44px;
+    overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 32px;}
+
+  /* NAV */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(8,9,12,.82); backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 32px; max-width:1100px; margin:0 auto;}
+  .logo{font-family:var(--mono); font-size:14px; letter-spacing:1px; color:var(--text);}
+  .logo span{color:var(--green);}
+  .navlinks{display:flex; gap:28px; font-family:var(--mono); font-size:12px; color:var(--muted); letter-spacing:.5px;}
+  .navlinks a:hover{color:var(--green);}
+  .navlinks .bracket{color:var(--muted2);}
+
+  /* HERO */
+  .hero{
+    min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:140px 24px 80px; position:relative;
+  }
+  .hero::after{
+    content:""; position:absolute; inset:0; pointer-events:none;
+    background:radial-gradient(ellipse 60% 45% at 50% 40%, rgba(77,255,158,.06), transparent 70%);
+  }
+  .pre{font-family:var(--mono); color:var(--green); font-size:13px; letter-spacing:3px; margin-bottom:22px; position:relative; z-index:1;}
+  .pre::before{content:"$ "; color:var(--muted2);}
+  .cursor{display:inline-block; width:8px; height:15px; background:var(--green); margin-left:4px; vertical-align:middle; animation:blink 1s steps(1) infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  h1.name{font-size:clamp(42px,7vw,78px); font-weight:300; letter-spacing:-1px; line-height:1.05; position:relative; z-index:1;}
+  h1.name .accent{color:var(--green); font-weight:500;}
+  .role{font-family:var(--mono); font-size:15px; color:var(--muted); margin-top:22px; letter-spacing:1px; position:relative; z-index:1;}
+  .desc{max-width:560px; margin:22px auto 0; color:var(--muted); font-size:16px; line-height:1.7; position:relative; z-index:1;}
+  .hero-cta{display:flex; gap:14px; margin-top:42px; position:relative; z-index:1;}
+  .btn{
+    font-family:var(--mono); font-size:13px; letter-spacing:1.5px; padding:14px 28px;
+    border:1px solid var(--green-dim); color:var(--green); border-radius:2px; transition:.2s;
+  }
+  .btn:hover{background:rgba(77,255,158,.08); border-color:var(--green);}
+  .btn.ghost{border-color:var(--line); color:var(--muted);}
+  .btn.ghost:hover{border-color:var(--muted2); color:var(--text);}
+  .scroll-hint{margin-top:70px; font-family:var(--mono); font-size:11px; color:var(--muted2); letter-spacing:2px; position:relative; z-index:1;}
+
+  /* SECTION SHARED */
+  section{padding:110px 0;}
+  .sec-tag{font-family:var(--mono); color:var(--green); font-size:12px; letter-spacing:3px; margin-bottom:12px;}
+  .sec-tag::before{content:"// ";}
+  h2{font-size:clamp(28px,4vw,40px); font-weight:300; margin-bottom:50px;}
+  h2 .accent{color:var(--green); font-weight:500;}
+
+  /* REVEAL */
+  .reveal{opacity:0; transform:translateY(36px); transition:opacity .8s ease, transform .8s ease;}
+  .reveal.visible{opacity:1; transform:translateY(0);}
+  .reveal.d1{transition-delay:.08s;}
+  .reveal.d2{transition-delay:.16s;}
+  .reveal.d3{transition-delay:.24s;}
+
+  /* SKILLS */
+  .skills-term{
+    background:var(--bg2); border:1px solid var(--line); border-radius:6px; overflow:hidden;
+  }
+  .term-head{display:flex; gap:7px; padding:12px 16px; border-bottom:1px solid var(--line);}
+  .dot{width:10px; height:10px; border-radius:50%; background:#3a3a3a;}
+  .term-body{padding:26px 28px; font-family:var(--mono); font-size:13.5px; line-height:2.1;}
+  .term-body .k{color:var(--green); display:inline-block; min-width:190px;}
+  .term-body .v{color:var(--muted);}
+  .term-body .row{white-space:normal;}
+
+  /* PROJECTS */
+  .project{
+    border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:28px;
+    background:var(--bg2); display:grid; grid-template-columns:1.1fr 1fr; min-height:280px;
+  }
+  .project.code-only{grid-template-columns:1fr;}
+  .p-visual{position:relative; background:#050506; display:flex; align-items:center; justify-content:center; overflow:hidden; align-self:start;}
+  .p-visual img{width:100%; height:300px; display:block; object-fit:cover; object-position:top; filter:saturate(.9) contrast(1.02);}
+  .browser-chrome{position:absolute; top:0; left:0; right:0; display:flex; gap:6px; padding:10px 14px; background:#0a0a0a; z-index:2;}
+  .browser-chrome .dot{width:8px; height:8px;}
+  .p-body{padding:34px 36px; display:flex; flex-direction:column; justify-content:center;}
+  .p-index{font-family:var(--mono); color:var(--green-dim); font-size:12px; margin-bottom:10px;}
+  .p-title{font-size:22px; font-weight:500; margin-bottom:12px;}
+  .founder-badge{font-family:var(--mono); font-size:11px; font-weight:400; color:var(--bg); background:var(--green); padding:4px 10px; border-radius:20px; vertical-align:middle; margin-left:8px;}
+  .p-desc{color:var(--muted); font-size:14.5px; line-height:1.7; margin-bottom:18px;}
+  .p-tags{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px;}
+  .tag{font-family:var(--mono); font-size:11px; color:var(--green); border:1px solid var(--green-dim); padding:4px 10px; border-radius:20px;}
+  .p-link{font-family:var(--mono); font-size:12.5px; color:var(--text); border-bottom:1px solid var(--muted2); padding-bottom:2px; width:fit-content;}
+  .p-link:hover{color:var(--green); border-color:var(--green);}
+  .p-status{font-family:var(--mono); font-size:11px; color:var(--muted2); margin-top:14px;}
+  .code-block{
+    font-family:var(--mono); font-size:12.5px; color:var(--muted); line-height:1.9;
+    background:#050506; padding:28px 32px; border-top:1px solid var(--line);
+  }
+  .code-block .c1{color:var(--green-dim);}
+  .code-block .c2{color:var(--green);}
+  @media(max-width:760px){
+    .project{grid-template-columns:1fr;}
+    .p-visual img{height:220px;}
+  }
+
+  /* CONTACT */
+  .contact-term{
+    background:var(--bg2); border:1px solid var(--line); border-radius:6px; padding:40px 36px;
+    text-align:center;
+  }
+  .contact-term .pre{margin-bottom:26px;}
+  .contact-links{display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:18px;}
+  .contact-links a{font-family:var(--mono); font-size:14px; border:1px solid var(--line); padding:12px 22px; border-radius:2px; color:var(--text);}
+  .contact-links a:hover{border-color:var(--green); color:var(--green);}
+
+  footer{text-align:center; padding:40px 24px; font-family:var(--mono); font-size:11px; color:var(--muted2); border-top:1px solid var(--line);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">N_<span>NEGOCIOS</span></div>
+    <div class="navlinks">
+      <span class="bracket">[</span><a href="#skills">SKILLS</a><span class="bracket">]</span>
+      <span class="bracket">[</span><a href="#como-trabajo">CÓMO TRABAJO</a><span class="bracket">]</span>
+      <span class="bracket">[</span><a href="#proyectos">PROYECTOS</a><span class="bracket">]</span>
+      <span class="bracket">[</span><a href="#contacto">CONTACTO</a><span class="bracket">]</span>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="pre">disponible para trabajar freelance<span class="cursor"></span></div>
+  <h1 class="name">Nicolás <span class="accent">Negocios</span></h1>
+  <div class="role">Full-Stack Developer · Automatización con IA generativa</div>
+  <p class="desc">Construyo productos digitales de punta a punta: desde el código hasta el negocio detrás. Marketplaces, e-commerce, automatización de documentos y contenido generado con IA.</p>
+  <div class="hero-cta">
+    <a href="#proyectos" class="btn">$ ver-proyectos --all</a>
+    <a href="#contacto" class="btn ghost">contactar</a>
+  </div>
+  <div class="scroll-hint">SCROLL ↓</div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-tag reveal">stack</div>
+    <h2 class="reveal">Skills &amp; <span class="accent">herramientas</span></h2>
+    <div class="skills-term reveal">
+      <div class="term-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="term-body">
+        <div class="row"><span class="k">FRONTEND</span><span class="v">Next.js · React · TypeScript · Tailwind CSS · Framer Motion</span></div>
+        <div class="row"><span class="k">BACKEND / DATOS</span><span class="v">Supabase · Node.js · PostgreSQL</span></div>
+        <div class="row"><span class="k">DEPLOY</span><span class="v">Vercel · GitHub</span></div>
+        <div class="row"><span class="k">E-COMMERCE</span><span class="v">Shopify · Mercado Pago · checkout por WhatsApp</span></div>
+        <div class="row"><span class="k">AUTOMATIZACIÓN</span><span class="v">Node.js / Python · generación de documentos · pipelines de video</span></div>
+        <div class="row"><span class="k">IA GENERATIVA</span><span class="v">Claude Code · Higgsfield · Kling AI · prompt engineering</span></div>
+        <div class="row"><span class="k">NEGOCIO</span><span class="v">Constitución de empresa (SpA) · SII · material para inversionistas</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="como-trabajo">
+  <div class="wrap">
+    <div class="sec-tag reveal">confianza</div>
+    <h2 class="reveal">Cómo trabajo con <span class="accent">IA</span></h2>
+    <div class="skills-term reveal">
+      <div class="term-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="term-body">
+        <div class="row"><span class="k">DESARROLLO ASISTIDO</span><span class="v">prototipos funcionales en días, no semanas, sin sacrificar calidad de código</span></div>
+        <div class="row"><span class="k">AUTOMATIZACIÓN</span><span class="v">contratos, propuestas y reportes que se generan solos en vez de escribirse a mano</span></div>
+        <div class="row"><span class="k">CONTENIDO CON IA</span><span class="v">video y creatividades publicitarias (Higgsfield, Kling) listas para campañas</span></div>
+        <div class="row"><span class="k">INTEGRACIÓN IA</span><span class="v">puedo sumar chatbots o asistentes con Claude directamente a tu producto</span></div>
+        <div class="row"><span class="k">REVISIÓN HUMANA</span><span class="v">cada entrega pasa por mí — la IA acelera el trabajo, no reemplaza el criterio</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <div class="sec-tag reveal">proyectos</div>
+    <h2 class="reveal">Lo que he <span class="accent">construido</span></h2>
+
+    <div class="project reveal">
+      <div class="p-visual">
+        <div class="browser-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <img src="conectavet.jpg" alt="Captura de la app ConectaVet">
+      </div>
+      <div class="p-body">
+        <div class="p-index">01</div>
+        <div class="p-title">ConectaVet <span class="founder-badge">Fundador</span></div>
+        <p class="p-desc">Marketplace veterinario en producción: dueños de mascotas encuentran y agendan con clínicas, las clínicas gestionan citas, presupuestos y pagos desde un panel propio. Empresa propia, constituida legalmente (SpA) — no es un encargo de cliente, es mi proyecto.</p>
+        <div class="p-tags">
+          <span class="tag">Next.js 15</span><span class="tag">React 19</span><span class="tag">Supabase</span><span class="tag">Vercel</span>
+        </div>
+        <a class="p-link" href="https://app.conectavet.cl" target="_blank" rel="noopener">app.conectavet.cl →</a>
+        <div class="p-status">Estado: en producción</div>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div class="p-visual">
+        <div class="browser-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <img src="obsidiana.jpg" alt="Captura de la tienda Obsidiana">
+      </div>
+      <div class="p-body">
+        <div class="p-index">02</div>
+        <div class="p-title">Obsidiana</div>
+        <p class="p-desc">Tienda online de moda oscura. Sitio estático sin build, panel propio para que la dueña suba productos vía Supabase, y checkout directo a WhatsApp para cerrar la venta.</p>
+        <div class="p-tags">
+          <span class="tag">HTML/CSS/JS</span><span class="tag">Supabase</span><span class="tag">Vercel</span>
+        </div>
+        <a class="p-link" href="https://obsidiana-two.vercel.app" target="_blank" rel="noopener">obsidiana-two.vercel.app →</a>
+        <div class="p-status">Estado: en producción</div>
+      </div>
+    </div>
+
+    <div class="project reveal">
+      <div class="p-visual">
+        <div class="browser-chrome"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <img src="naila.jpg" alt="Captura del sitio de NAILA Business Evolver">
+      </div>
+      <div class="p-body">
+        <div class="p-index">03</div>
+        <div class="p-title">NAILA Business Evolver</div>
+        <p class="p-desc">Landing page y tienda online para esta consultora de negocios con sede en España, en español/inglés/danés. También desarrollé, para su cliente Grupo Prodesco, una herramienta a medida de gestión organizacional (bajo confidencialidad) con generación automática de contratos y propuestas.</p>
+        <div class="p-tags">
+          <span class="tag">Next.js</span><span class="tag">E-commerce</span><span class="tag">Multilenguaje</span><span class="tag">Automatización de documentos</span>
+        </div>
+        <a class="p-link" href="https://www.businessevolver.eu" target="_blank" rel="noopener">businessevolver.eu →</a>
+        <div class="p-status">Estado: en producción · cliente NAILA Business Evolver (España)</div>
+      </div>
+    </div>
+
+    <div class="project code-only reveal">
+      <div class="p-body">
+        <div class="p-index">04</div>
+        <div class="p-title">VitalPlus</div>
+        <p class="p-desc">Marca de e-commerce (dropshipping) con tienda personalizada y un pipeline propio en Python que genera videos publicitarios con IA — guion, render con Higgsfield/Kling y subtítulos automáticos listos para TikTok e Instagram.</p>
+        <div class="p-tags"><span class="tag">Shopify</span><span class="tag">Python</span><span class="tag">Higgsfield</span><span class="tag">Mercado Pago</span></div>
+      </div>
+      <div class="code-block">
+<span class="c1">$ python armar_virales.py</span><br>
+<span class="c2">›</span> generando guion problema→solución→CTA<br>
+<span class="c2">›</span> render IA + subtítulos ................ ok<br>
+<span class="c2">›</span> video listo en <span class="c2">videos-ia/listos/</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="wrap">
+    <div class="sec-tag reveal">contacto</div>
+    <h2 class="reveal">Hablemos de tu <span class="accent">proyecto</span></h2>
+    <div class="contact-term reveal">
+      <div class="pre">disponible para proyectos freelance — full-stack, automatización e IA</div>
+      <div class="contact-links">
+        <a href="mailto:nicolasnegociosla@gmail.com">nicolasnegociosla@gmail.com</a>
+        <a href="https://github.com/nicolasnegociosla-ship-it" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="cv-nicolas-larrain.pdf" target="_blank" rel="noopener">Descargar CV (PDF) ↓</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 Nicolás Negocios · construido con Next.js en la cabeza y café</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+  els.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
