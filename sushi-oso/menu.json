@@ -1,0 +1,333 @@
+{
+ "config": {
+  "name": "Sushi adonde el Oso",
+  "commune": "Puente Alto",
+  "address": "Violeta 1843",
+  "wa": "56920823338",
+  "open": "14:00",
+  "close": "23:00",
+  "prepMin": 30,
+  "prepMax": 40,
+  "cutFee": 500,
+  "heroImg": "img/p2.jpg",
+  "notice": "",
+  "tagline": "Sushi hecho al momento en Puente Alto. Armas tu pedido acá y lo cierras por WhatsApp.",
+  "days": [
+   {
+    "closed": true,
+    "open": "14:00",
+    "close": "23:00"
+   },
+   {
+    "closed": false,
+    "open": "14:00",
+    "close": "23:00"
+   },
+   {
+    "closed": false,
+    "open": "14:00",
+    "close": "23:00"
+   },
+   {
+    "closed": false,
+    "open": "14:00",
+    "close": "23:00"
+   },
+   {
+    "closed": false,
+    "open": "14:00",
+    "close": "23:00"
+   },
+   {
+    "closed": false,
+    "open": "14:00",
+    "close": "23:00"
+   },
+   {
+    "closed": false,
+    "open": "14:00",
+    "close": "23:00"
+   }
+  ]
+ },
+ "cats": [
+  {
+   "id": "promos",
+   "name": "Promociones",
+   "layout": "wide",
+   "note": "Todas incluyen salsa de soya, teriyaki y palitos.",
+   "defImg": "img/p2.jpg"
+  },
+  {
+   "id": "handrolls",
+   "name": "Hand Rolls",
+   "cut": true,
+   "note": "Todos llevan queso crema y cebollín.",
+   "defImg": "img/p3.jpg"
+  },
+  {
+   "id": "sushipletos",
+   "name": "Sushipletos",
+   "note": "Una pieza XL, para el antojo. Base de arroz, queso crema y cebollín.",
+   "defImg": "img/p6.jpg"
+  },
+  {
+   "id": "salsas",
+   "name": "Salsas",
+   "note": "Para acompañar o para llevar aparte.",
+   "defImg": "img/p9.jpg"
+  }
+ ],
+ "items": [
+  {
+   "id": "p1",
+   "cat": "promos",
+   "name": "P.1",
+   "price": 6000,
+   "img": "img/p1.jpg",
+   "desc": "Envuelto frito y envuelto en queso.",
+   "active": true,
+   "unit": "20 bocados"
+  },
+  {
+   "id": "p1a",
+   "cat": "promos",
+   "name": "P.1 a",
+   "price": 7000,
+   "img": "img/p1.jpg",
+   "desc": "Envuelto en palta y envuelto frito.",
+   "active": true,
+   "unit": "20 bocados"
+  },
+  {
+   "id": "p1b",
+   "cat": "promos",
+   "name": "P.1 b",
+   "price": 7500,
+   "img": "img/p1.jpg",
+   "desc": "Envuelto en palta y envuelto en queso.",
+   "active": true,
+   "unit": "20 bocados"
+  },
+  {
+   "id": "p1f",
+   "cat": "promos",
+   "name": "P.1 f",
+   "price": 17000,
+   "img": "img/p2.jpg",
+   "desc": "Envuelto en queso, palta, ciboulette, nori y 2 fritos.",
+   "active": true,
+   "unit": "60 bocados"
+  },
+  {
+   "id": "p1g",
+   "cat": "promos",
+   "name": "P.1 g",
+   "price": 17000,
+   "img": "img/p2.jpg",
+   "desc": "4 fritos, envuelto en palta y envuelto en queso.",
+   "active": true,
+   "unit": "60 bocados"
+  },
+  {
+   "id": "p1h",
+   "cat": "promos",
+   "name": "P.1 h",
+   "price": 25000,
+   "img": "img/p2.jpg",
+   "desc": "5 fritos, envuelto en palta, queso, ciboulette y nori.",
+   "active": true,
+   "unit": "90 bocados"
+  },
+  {
+   "id": "p1i",
+   "cat": "promos",
+   "name": "P.1 i",
+   "price": 33000,
+   "img": "img/p2.jpg",
+   "desc": "5 fritos, 2 en queso, 1 en salmón, 2 en nori, 1 en palta y 2 en ciboulette.",
+   "active": true,
+   "unit": "130 bocados"
+  },
+  {
+   "id": "h_palta",
+   "cat": "handrolls",
+   "name": "Palta",
+   "price": 2500,
+   "img": "img/p3.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "h_kani",
+   "cat": "handrolls",
+   "name": "Kanikama",
+   "price": 2500,
+   "img": "img/p3.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "h_carne",
+   "cat": "handrolls",
+   "name": "Carne",
+   "price": 3000,
+   "img": "img/p3.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "h_pollo",
+   "cat": "handrolls",
+   "name": "Pollo",
+   "price": 3000,
+   "img": "img/p3.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "h_cam",
+   "cat": "handrolls",
+   "name": "Camarón",
+   "price": 3500,
+   "img": "img/p3.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "h_kani_p",
+   "cat": "handrolls",
+   "name": "Kanikama y palta",
+   "price": 3000,
+   "img": "img/p4.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "h_carne_p",
+   "cat": "handrolls",
+   "name": "Carne y palta",
+   "price": 3500,
+   "img": "img/p4.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "h_pollo_p",
+   "cat": "handrolls",
+   "name": "Pollo y palta",
+   "price": 3500,
+   "img": "img/p4.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "h_cam_p",
+   "cat": "handrolls",
+   "name": "Camarón y palta",
+   "price": 4000,
+   "img": "img/p4.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "h_cpc",
+   "cat": "handrolls",
+   "name": "Carne, pollo y camarón",
+   "price": 4500,
+   "img": "img/p5.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "h_cpp",
+   "cat": "handrolls",
+   "name": "Camarón, pollo y palta",
+   "price": 4000,
+   "img": "img/p5.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "h_pcp",
+   "cat": "handrolls",
+   "name": "Pollo, carne y palta",
+   "price": 4000,
+   "img": "img/p5.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "s_pollo",
+   "cat": "sushipletos",
+   "name": "Sushipleto de pollo",
+   "price": 5500,
+   "img": "img/p6.jpg",
+   "desc": "Pollo apanado crocante.",
+   "active": true
+  },
+  {
+   "id": "s_cam",
+   "cat": "sushipletos",
+   "name": "Sushipleto de camarón",
+   "price": 6500,
+   "img": "img/p7.jpg",
+   "desc": "Camarón panko por encima.",
+   "active": true
+  },
+  {
+   "id": "s_sal",
+   "cat": "sushipletos",
+   "name": "Sushipleto de salmón",
+   "price": 7000,
+   "img": "img/p8.jpg",
+   "desc": "Envuelto en salmón fresco.",
+   "active": true
+  },
+  {
+   "id": "sa_ace",
+   "cat": "salsas",
+   "name": "Acevichada",
+   "price": 1000,
+   "img": "img/p9.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "sa_spi",
+   "cat": "salsas",
+   "name": "Spicy",
+   "price": 1000,
+   "img": "img/p9.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "sa_fuji",
+   "cat": "salsas",
+   "name": "Fuji",
+   "price": 1000,
+   "img": "img/p9.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "sa_ter",
+   "cat": "salsas",
+   "name": "Teriyaki",
+   "price": 1000,
+   "img": "img/p9.jpg",
+   "desc": "",
+   "active": true
+  },
+  {
+   "id": "sa_soya",
+   "cat": "salsas",
+   "name": "Soya",
+   "price": 500,
+   "img": "img/p9.jpg",
+   "desc": "",
+   "active": true
+  }
+ ]
+}
